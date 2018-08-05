@@ -15,22 +15,40 @@
     
     #preload {
       z-index: 1000;
+      box-shadow: inset 0 0 4rem -1rem #333;
     }
     
-    #preload h1 {
-      font-family: 'Lobster';
-      font-size: 4.5em;
+    #preload .containerClaim {
+      margin: 0 auto;
+      text-align: center;
+      vertical-align: middle;
+      margin-top: 8rem;
+    }
+    
+    #preload .containerClaim h1 {
+      font-family: monospace;
+      font-size: 4.5rem;
       line-height: 1;
       margin: 0;
-      letter-spacing: -0.025em;
-      color: #d1b790;
+      letter-spacing: -0.025rem;
+      color: #62688f;
     }
     
-    #preload h1 span {
-      font-size: 0.2em;
-      font-style: italic;
+    #preload .containerClaim span {
+      font-size: 1rem;
+      font-family: monospace;
+      color: #333;
       display: block;
-      margin: 0 0 -1.5em -7em;
+    }
+    
+    
+    #preload .containerClaim h1 span {
+      font-size: 1.75rem;
+      font-style: italic;
+      font-family: monospace;
+      color: black;
+      display: block;
+      margin: 0 0 -1.5rem 3.5rem;
       letter-spacing: 0px;
     }
     
@@ -51,10 +69,10 @@
     	width: 100vw;
     	height: 100vh;
     	background: linear-gradient(#a6cecf, #f7d9aa, #f7d9aa);
+    	box-shadow: inset 0 0 4rem -1rem #333;
     }
     
     .fullbg {
-      background-color: #a6cecf;
       height: 100vh;
       width: 100vw;
       position: fixed;
@@ -63,8 +81,8 @@
     }
     
     .spinner .movement {
-        width: 200px;
-        height: 200px;
+        width: 256px;
+        height: 256px;
         position: absolute;
         left: -20px;
         top: 40%;
@@ -72,10 +90,18 @@
         animation: move 4s infinite cubic-bezier(.2,.64,.81,.23);
     }
     
+    .off5 {
+      margin-top: 1rem;
+    }
+    
+    .off10 {
+      margin-top: 2rem;
+    }
+    
     .horse {
       /* eth */
-      width: 200px;
-      height: 200px;
+      width: 256px;
+      height: 256px;
       background-color: #62688f;
       animation: gallopp 0.5s infinite;
       clip-path: polygon(50.6% 50.9%, 55.8% 40.75%, 55.25% 34.2%, 50.85% 43.25%, 45.4% 43.05%, 47.3% 36.55%, 57.65% 31.25%, 67.8% 30.8%, 72.85% 22.3%, 74.35% 17.9%, 75.55% 22.2%, 82.85% 25.3%, 82.7% 28.7%, 76.15% 29.9%, 75% 38.5%, 79.85% 51.55%, 76.95% 52.75%, 70.4% 41.95%, 60.6% 42.3%, 53.25% 53.1%);
@@ -125,10 +151,10 @@
     
     .hide {
         opacity: 0;
-        -webkit-transition: opacity 0.7s ease-in-out;
-        -moz-transition: opacity 0.7s ease-in-out;
-        -ms-transition: opacity 0.7s ease-in-out;
-        -o-transition: opacity 0.7s ease-in-out;
+        -webkit-transition: opacity 2s ease-in-out;
+        -moz-transition: opacity 2s ease-in-out;
+        -ms-transition: opacity 2s ease-in-out;
+        -o-transition: opacity 2s ease-in-out;
     }
     
     .show {
@@ -171,23 +197,28 @@
 <body>
   
 	<div id="preload" class="fullbg spinner">
-	  <h1>
-	    <span>mylittle</span>
-	    ethorse
-	  </h1>
-	  <div class="movement">
+	  <div class='containerClaim'>
+  	  <h1>
+  	    <span>mylittle</span>
+  	    ethorse
+  	  </h1>
+  	  <span id='VERSION'>alpha</span>
+	  </div>
+	  <div class="movement off5">
 	  	<div class='horse'></div>
 	  </div>
 	  <div class="movement">
 	  	<div class='horse'></div>
 	  </div>
-	  <div class="movement">
+	  <div class="movement off10">
 	  	<div class='horse'></div>
 	  </div>
   </div>
   
   <div id="react_mount"></div>
 	<div id="game_mount"></div>
+	
+	<img id='ETH' src='https://s2.coinmarketcap.com/static/img/coins/16x16/1027.png'/>
 
 <script>/** @license zlib.js 2012 - imaya [ https://github.com/imaya/zlib.js ] The MIT License */(function() {'use strict';var l=void 0,aa=this;function r(c,d){var a=c.split("."),b=aa;!(a[0]in b)&&b.execScript&&b.execScript("var "+a[0]);for(var e;a.length&&(e=a.shift());)!a.length&&d!==l?b[e]=d:b=b[e]?b[e]:b[e]={}};var t="undefined"!==typeof Uint8Array&&"undefined"!==typeof Uint16Array&&"undefined"!==typeof Uint32Array&&"undefined"!==typeof DataView;function v(c){var d=c.length,a=0,b=Number.POSITIVE_INFINITY,e,f,g,h,k,m,n,p,s,x;for(p=0;p<d;++p)c[p]>a&&(a=c[p]),c[p]<b&&(b=c[p]);e=1<<a;f=new (t?Uint32Array:Array)(e);g=1;h=0;for(k=2;g<=a;){for(p=0;p<d;++p)if(c[p]===g){m=0;n=h;for(s=0;s<g;++s)m=m<<1|n&1,n>>=1;x=g<<16|p;for(s=m;s<e;s+=k)f[s]=x;++h}++g;h<<=1;k<<=1}return[f,a,b]};function w(c,d){this.g=[];this.h=32768;this.d=this.f=this.a=this.l=0;this.input=t?new Uint8Array(c):c;this.m=!1;this.i=y;this.r=!1;if(d||!(d={}))d.index&&(this.a=d.index),d.bufferSize&&(this.h=d.bufferSize),d.bufferType&&(this.i=d.bufferType),d.resize&&(this.r=d.resize);switch(this.i){case A:this.b=32768;this.c=new (t?Uint8Array:Array)(32768+this.h+258);break;case y:this.b=0;this.c=new (t?Uint8Array:Array)(this.h);this.e=this.z;this.n=this.v;this.j=this.w;break;default:throw Error("invalid inflate mode");
 	}}var A=0,y=1,B={t:A,s:y};
@@ -205,5 +236,10 @@
 	w.prototype.v=function(){var c,d=this.b;t?this.r?(c=new Uint8Array(d),c.set(this.c.subarray(0,d))):c=this.c.subarray(0,d):(this.c.length>d&&(this.c.length=d),c=this.c);return this.buffer=c};function W(c,d){var a,b;this.input=c;this.a=0;if(d||!(d={}))d.index&&(this.a=d.index),d.verify&&(this.A=d.verify);a=c[this.a++];b=c[this.a++];switch(a&15){case ha:this.method=ha;break;default:throw Error("unsupported compression method");}if(0!==((a<<8)+b)%31)throw Error("invalid fcheck flag:"+((a<<8)+b)%31);if(b&32)throw Error("fdict flag is not supported");this.q=new w(c,{index:this.a,bufferSize:d.bufferSize,bufferType:d.bufferType,resize:d.resize})}
 	W.prototype.k=function(){var c=this.input,d,a;d=this.q.k();this.a=this.q.a;if(this.A){a=(c[this.a++]<<24|c[this.a++]<<16|c[this.a++]<<8|c[this.a++])>>>0;var b=d;if("string"===typeof b){var e=b.split(""),f,g;f=0;for(g=e.length;f<g;f++)e[f]=(e[f].charCodeAt(0)&255)>>>0;b=e}for(var h=1,k=0,m=b.length,n,p=0;0<m;){n=1024<m?1024:m;m-=n;do h+=b[p++],k+=h;while(--n);h%=65521;k%=65521}if(a!==(k<<16|h)>>>0)throw Error("invalid adler-32 checksum");}return d};var ha=8;r("Zlib.Inflate",W);r("Zlib.Inflate.prototype.decompress",W.prototype.k);var X={ADAPTIVE:B.s,BLOCK:B.t},Y,Z,$,ia;if(Object.keys)Y=Object.keys(X);else for(Z in Y=[],$=0,X)Y[$++]=Z;$=0;for(ia=Y.length;$<ia;++$)Z=Y[$],r("Zlib.Inflate.BufferType."+Z,X[Z]);}).call(this);
 </script>
-<script type="text/javascript" src="main.7ac239bf17fb6723c86a.js"></script></body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/easing/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/DirectionalRotationPlugin.min.js"></script>
+<script type="text/javascript" src="main.2f3be5d774e1828ece01.js"></script></body>
 </html>
