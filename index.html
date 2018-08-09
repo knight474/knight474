@@ -11,11 +11,51 @@
     
     body, html {
       background: #a6cecf;
+      font-size: 16px;
     }
+    
+    
+    .containerNotice {
+      pointer-events: none;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      z-index: 100000000 !important;
+      background: rgba(0,0,0,0.8);
+    }
+    
+    .clickable {
+      pointer-events: all; 
+    }
+    
+    .NoticeInner {
+      box-shadow: inset 0 0 4rem -1rem #333;
+      margin: 0 auto;
+      text-align: center;
+      vertical-align: middle;
+      width: 80vw;
+      min-height: 30vh;
+      padding: 1rem;
+      margin-top: 30vh;
+      background: white;
+    }
+    
+    .NoticeInner .text {
+      font-family: monospace;
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+    
+    .queen {
+      font-family: Raleway;
+    }
+    
     
     #preload {
       z-index: 1000;
       box-shadow: inset 0 0 4rem -1rem #333;
+      line-height: 2rem;
+      padding: 1rem;
     }
     
     #preload .containerClaim {
@@ -27,7 +67,7 @@
     
     #preload .containerClaim h1 {
       font-family: monospace;
-      font-size: 4.5rem;
+      font-size: 2.5rem;
       line-height: 1;
       margin: 0;
       letter-spacing: -0.025rem;
@@ -43,13 +83,13 @@
     
     
     #preload .containerClaim h1 span {
-      font-size: 1.75rem;
-      font-style: italic;
-      font-family: monospace;
-      color: black;
-      display: block;
-      margin: 0 0 -1.5rem 3.5rem;
-      letter-spacing: 0px;
+    font-size: 2.75rem;
+    font-style: italic;
+    font-family: monospace;
+    color: black;
+    display: block;
+    margin: 1px 0 -0.5rem 3.5rem;
+    letter-spacing: 0px;
     }
     
     #react_mount {
@@ -196,17 +236,44 @@
     }
 
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <link rel="shortcut icon" href="favicon_16.gif"><link href="styles.css" rel="stylesheet"></head>
 
 <body>
+  
+  	<div id='NOTICE' class='containerNotice'>
+  	  <div class='NoticeInner'>
+  	    
+	      <ul class='text'>
+    	    <li>ALPHA VERSION</li>
+    	    <li>---------------------------------------</li>
+    	    <li>The Ethorse Team has NOT produced this.</li>
+    	    <li>---------------------------------------</li>
+    	    <li>This is an unofficial community project.</li>
+    	    <li>We have produced it, with minions.</li>
+      	  <li> &lt3 ~The Queen </li>
+      	  <li>---------------------------------------</li>
+    	  </ul>
+    	  
+    	    <div class='text'>
+            CHROME or BRAVE with METAMASK REQUIRED.
+            By using you agree to using cookies.
+    	      Whitepaper and more Infos Soon.
+    	   </div>
+
+        <button class='clickable' onclick="agreeToTerms()">I AGREE AND UNDERSTAND TO USE ALPHA</button>
+
+  	  </div>
+	  </div>
   
 	<div id="preload" class="fullbg spinner">
 	  <div class='containerClaim'>
   	  <h1>
   	    <span>mylittle</span>
-  	    ethorse
+  	   ethorse
   	  </h1>
-  	  <span id='VERSION'>alpha</span>
+  	  <span>UNOFFICIAL Community Race Viewer</span>
+  	  <span id='VERSION'>ALPHA VERSION PREVIEW</span>
 	  </div>
 	  <div class="movement off5">
 	  	<div class='horse'></div>
@@ -223,7 +290,31 @@
 	<div id="game_mount"></div>
 	
 	<img id='ETH' src='https://s2.coinmarketcap.com/static/img/coins/16x16/1027.png'/>
+<script>
 
+  var c = Cookies.get('firstTimeMLE');
+  
+  if(c === 'wasHere'){
+    var e = document.getElementById('NOTICE')
+    e.classList.add('hide')
+  }
+  
+  if(c !== 'wasHere'){
+    
+  }
+  
+  if(!web3){
+    alert('Please Use Chrome with Metamask. Everything else unsupported')
+  }
+  
+  function agreeToTerms(){
+    Cookies.set('firstTimeMLE', 'wasHere', { expires: 7 }); 
+    console.log('CLICK')
+    var e = document.getElementById('NOTICE')
+    e.classList.add('hide')
+  }
+  
+</script>
 <script>/** @license zlib.js 2012 - imaya [ https://github.com/imaya/zlib.js ] The MIT License */(function() {'use strict';var l=void 0,aa=this;function r(c,d){var a=c.split("."),b=aa;!(a[0]in b)&&b.execScript&&b.execScript("var "+a[0]);for(var e;a.length&&(e=a.shift());)!a.length&&d!==l?b[e]=d:b=b[e]?b[e]:b[e]={}};var t="undefined"!==typeof Uint8Array&&"undefined"!==typeof Uint16Array&&"undefined"!==typeof Uint32Array&&"undefined"!==typeof DataView;function v(c){var d=c.length,a=0,b=Number.POSITIVE_INFINITY,e,f,g,h,k,m,n,p,s,x;for(p=0;p<d;++p)c[p]>a&&(a=c[p]),c[p]<b&&(b=c[p]);e=1<<a;f=new (t?Uint32Array:Array)(e);g=1;h=0;for(k=2;g<=a;){for(p=0;p<d;++p)if(c[p]===g){m=0;n=h;for(s=0;s<g;++s)m=m<<1|n&1,n>>=1;x=g<<16|p;for(s=m;s<e;s+=k)f[s]=x;++h}++g;h<<=1;k<<=1}return[f,a,b]};function w(c,d){this.g=[];this.h=32768;this.d=this.f=this.a=this.l=0;this.input=t?new Uint8Array(c):c;this.m=!1;this.i=y;this.r=!1;if(d||!(d={}))d.index&&(this.a=d.index),d.bufferSize&&(this.h=d.bufferSize),d.bufferType&&(this.i=d.bufferType),d.resize&&(this.r=d.resize);switch(this.i){case A:this.b=32768;this.c=new (t?Uint8Array:Array)(32768+this.h+258);break;case y:this.b=0;this.c=new (t?Uint8Array:Array)(this.h);this.e=this.z;this.n=this.v;this.j=this.w;break;default:throw Error("invalid inflate mode");
 	}}var A=0,y=1,B={t:A,s:y};
 	w.prototype.k=function(){for(;!this.m;){var c=C(this,3);c&1&&(this.m=!0);c>>>=1;switch(c){case 0:var d=this.input,a=this.a,b=this.c,e=this.b,f=d.length,g=l,h=l,k=b.length,m=l;this.d=this.f=0;if(a+1>=f)throw Error("invalid uncompressed block header: LEN");g=d[a++]|d[a++]<<8;if(a+1>=f)throw Error("invalid uncompressed block header: NLEN");h=d[a++]|d[a++]<<8;if(g===~h)throw Error("invalid uncompressed block header: length verify");if(a+g>d.length)throw Error("input buffer is broken");switch(this.i){case A:for(;e+
@@ -245,5 +336,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/easing/EasePack.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/DirectionalRotationPlugin.min.js"></script>
-<script type="text/javascript" src="main.d4ce8b63fa07da7f186a.js"></script></body>
+<script type="text/javascript" src="main.8315ef4ff5580800b11d.js"></script></body>
 </html>
