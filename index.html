@@ -10,6 +10,7 @@
     <style>
     
     body, html {
+      font-family: Raleway;
       background: #a6cecf;
       font-size: 16px;
     }
@@ -66,12 +67,24 @@
     }
     
     #preload .containerClaim h1 {
-      font-family: monospace;
-      font-size: 2.5rem;
+      font-family: Raleway;
+      font-weight: bold;
+      font-size: 6rem;
       line-height: 1;
       margin: 0;
       letter-spacing: -0.025rem;
       color: #62688f;
+    }
+    
+    #preload .containerClaim h1 span {
+      font-size: 2.5rem;
+      font-family: Raleway;
+      font-style: italic;
+      color: black;
+      display: block;
+      margin: -7rem 0.5rem 3.5rem 7rem;
+      letter-spacing: 8px;
+      z-index: 1000;
     }
     
     #preload .containerClaim span {
@@ -81,16 +94,6 @@
       display: block;
     }
     
-    
-    #preload .containerClaim h1 span {
-    font-size: 2.75rem;
-    font-style: italic;
-    font-family: monospace;
-    color: black;
-    display: block;
-    margin: 1px 0 -0.5rem 3.5rem;
-    letter-spacing: 0px;
-    }
     
     #react_mount {
     	top: 0;
@@ -125,17 +128,17 @@
         height: 256px;
         position: absolute;
         left: -20px;
-        top: 40%;
-        /* border-radius: 50%; */
+        top: 20px;
+        z-index: -1;
         animation: move 4s infinite cubic-bezier(.2,.64,.81,.23);
     }
     
     .off5 {
-      margin-top: 1rem;
+      margin-top: 0rem;
     }
     
     .off10 {
-      margin-top: 2rem;
+      margin-top: 0rem;
     }
     
     .horse {
@@ -267,14 +270,7 @@
 	  </div>
   
 	<div id="preload" class="fullbg spinner">
-	  <div class='containerClaim'>
-  	  <h1>
-  	    <span>mylittle</span>
-  	   ethorse
-  	  </h1>
-  	  <span>UNOFFICIAL Community Race Viewer</span>
-  	  <span id='VERSION'>ALPHA VERSION PREVIEW</span>
-	  </div>
+
 	  <div class="movement off5">
 	  	<div class='horse'></div>
 	  </div>
@@ -284,6 +280,16 @@
 	  <div class="movement off10">
 	  	<div class='horse'></div>
 	  </div>
+	  
+	  <div class='containerClaim'>
+  	  <h1>
+  	   ethorse
+  	         <span>my little</span>
+  	  </h1>
+  	  <span>UNOFFICIAL Community Race Viewer</span>
+  	  <span id='VERSION'>ALPHA VERSION PREVIEW</span>
+	  </div>
+	  
   </div>
   
   <div id="react_mount"></div>
@@ -303,8 +309,8 @@
     
   }
   
-  if(!web3){
-    alert('Please Use Chrome with Metamask. Everything else unsupported')
+  if(typeof window.web3 == 'undefined'){
+    location.href = "/#/please_login_or_get_metamask.io"
   }
   
   function agreeToTerms(){
@@ -336,5 +342,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/easing/EasePack.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/DirectionalRotationPlugin.min.js"></script>
-<script type="text/javascript" src="main.69a67cc117514d302054.js"></script></body>
+<script type="text/javascript" src="main.6d8a44664a966a84762a.js"></script></body>
 </html>
