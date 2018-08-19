@@ -244,7 +244,7 @@
 
 <body>
   
-  	<div id='NOTICE' class='containerNotice'>
+  	<div id='NOTICE' class='containerNotice hide'>
   	  <div class='NoticeInner'>
   	    
 	      <ul class='text'>
@@ -301,12 +301,14 @@
   var c = Cookies.get('firstTimeMLE');
   
   if(c === 'wasHere'){
-    var e = document.getElementById('NOTICE')
-    e.classList.add('hide')
+        var e = document.getElementById('NOTICE')
+        e.innerHTML = ''
   }
   
   if(c !== 'wasHere'){
-    
+    var e = document.getElementById('NOTICE')
+    e.classList.remove('hide')
+    e.classList.add('show')
   }
   
   if(typeof window.web3 == 'undefined'){
@@ -317,6 +319,7 @@
     Cookies.set('firstTimeMLE', 'wasHere', { expires: 7 }); 
     console.log('CLICK')
     var e = document.getElementById('NOTICE')
+    e.classList.remove('show')
     e.classList.add('hide')
   }
   
@@ -340,7 +343,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/easing/EasePack.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/DirectionalRotationPlugin.min.js"></script>
-<script type="text/javascript" src="main.9fb2d8a2e5880df1e924.js"></script></body>
+<script type="text/javascript" src="commons-f5b514bc911477a262b5.js"></script><script type="text/javascript" src="main-f5b514bc911477a262b5.js"></script></body>
 </html>
