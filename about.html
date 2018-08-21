@@ -11,19 +11,17 @@
     
     body, html {
       font-family: Raleway;
-      background: #a6cecf;
       font-size: 16px;
-      width: 100vw;
-    	height: 100vh;
-    	background: linear-gradient(#a6cecf, #f7d9aa, #f7d9aa);
-    	box-shadow: inset 0 0 4rem 0rem #333;
+      width: 100%;
+    	height: 100%;
+    	background: #a6cecf;
     	margin: 0;
     }
   
     #preload {
       z-index: 1000;
       line-height: 2rem;
-      padding: 1rem;
+      margin-top: -2rem;
     }
     
     #preload .containerClaim {
@@ -53,11 +51,8 @@
     }
     
     .fullbg {
-      height: 100vh;
       width: 100vw;
-      position: fixed;
-      overflow: hidden;
-      pointer-events: none;
+      position: relative;
     }
     
     .off {
@@ -105,11 +100,9 @@
       background-color: #62688f;
     }
     
-        
-    
     #react {
     	top: 0;
-    	position: fixed;
+    	position: relative;
     	z-index: 2;
     	pointer-events: none;
     }
@@ -120,10 +113,9 @@
     
     </style>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-<link rel="shortcut icon" href="favicon_16.gif"></head>
+<link rel="shortcut icon" href="favicon_16.gif"><link href="styles.css" rel="stylesheet"></head>
 
 <body>
-  <div id="react"></div>
 	<div id="preload" class="fullbg spinner">
 	  <div class='containerClaim'>
   	  <h1>
@@ -144,6 +136,8 @@
   	  </div>
 	  </div>
   </div>
-
-<script type="text/javascript" src="commons-f5b514bc911477a262b5.js"></script><script type="text/javascript" src="about-f5b514bc911477a262b5.js"></script></body>
+  
+  <div id="react"></div>
+  
+<script type="text/javascript" src="commons-6d7f684507ba4a3cee1a.js"></script><script type="text/javascript" src="about-6d7f684507ba4a3cee1a.js"></script></body>
 </html>
