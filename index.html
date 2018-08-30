@@ -311,6 +311,10 @@
     e.classList.add('show')
   }
   
+  if(typeof window.web3 == 'undefined'){
+    location.href = "/#/please_login_or_get_metamask.io"
+  }
+  
   function agreeToTerms(){
     Cookies.set('firstTimeMLE', 'wasHere', { expires: 7 }); 
     console.log('CLICK')
@@ -340,5 +344,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/easing/EasePack.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/DirectionalRotationPlugin.min.js"></script>
-<script type="text/javascript" src="commons-a3884a63d8f14a660d9d.js"></script><script type="text/javascript" src="main-a3884a63d8f14a660d9d.js"></script></body>
+<script type="text/javascript" src="commons-f790c05fa18e3d795fab.js"></script><script type="text/javascript" src="main-f790c05fa18e3d795fab.js"></script></body>
 </html>
